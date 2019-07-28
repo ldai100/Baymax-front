@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'save_history/save_history.dart';
 
 class Home extends StatefulWidget {
  @override
@@ -23,7 +23,13 @@ class _HomeState extends State<Home> {
            title: new Text('Home'),
          ),
          BottomNavigationBarItem(
-           icon: new Icon(Icons.mail),
+           icon: GestureDetector(
+               onTap: (){
+                 Navigator.push(
+                     context,MaterialPageRoute(builder: (context)=>SaveHistory())
+                 );
+               },
+               child: new Icon(Icons.mail)),
            title: new Text('Messages'),
          ),
          BottomNavigationBarItem(
