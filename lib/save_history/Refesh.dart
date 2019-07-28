@@ -52,13 +52,41 @@ class _RefreshState extends State<Refresh> {
     return Scaffold(
 
       body: RefreshIndicator(
-        onRefresh: refreshList,
+        onRefresh: refreshList,   //refresh,scroll  action trigger
+
         key: refreshKey,
         child: ListView.builder(
           itemCount: list.length,
-          itemBuilder: (context, i) => ListTile(
-            title: Text(list[i]),
-          ),
+          itemBuilder: (context, i) {
+            // itemBuilder function will be called list.length time
+            // return any widget
+            return GestureDetector(
+              onTap: (){
+               // print('print...............................');
+                // pop up new page and pass data to it
+              },
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
+                child: Card(
+                  color: Colors.deepOrangeAccent,
+                  elevation: 5.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                    child: Text(
+                      list[i],
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
         ),
 
       ),
