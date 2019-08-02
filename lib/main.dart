@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'views/home.dart';
+import 'package:fluro/fluro.dart';
 
 void main() => runApp(MyApp());
 
