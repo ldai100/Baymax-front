@@ -46,10 +46,10 @@ class _HomeState extends State<Home> {
     list..add(ExplorePage())..add(CollectionPage())..add(ProfilePage());
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
