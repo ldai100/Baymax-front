@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
 
         currentIndex: _currentIndex,
 
-        onTap: _ItemTapped,
+        onTap: _itemTapped,
         
         
         type: BottomNavigationBarType.fixed,
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
       );
   }
 
-  void _ItemTapped(int index) {
+  void _itemTapped(int index) {
     setState(() {
       _currentIndex = index;
       appBarTitle = tabData[index]['text'];
