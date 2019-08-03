@@ -23,7 +23,7 @@ class _DetailState extends State<Detail> {
 
 
 class ProfileFourPage extends StatelessWidget {
-     static final String path = "lib/src/pages/profile/profile4.dart";
+     //static final String path = "lib/src/pages/profile/profile4.dart";
      @override
      Widget build(BuildContext context){
        return Scaffold(
@@ -35,6 +35,7 @@ class ProfileFourPage extends StatelessWidget {
              children: <Widget>[
                SizedBox(height: 10.0),
                _buildHeader(),
+
                Container(
                  margin: const EdgeInsets.all(16.0),
                  padding: const EdgeInsets.all(16.0),
@@ -43,18 +44,13 @@ class ProfileFourPage extends StatelessWidget {
                  ),
                  child: Text("Over 8+ years of experience and web development and 5+ years of experience in mobile applications development "),
                ),
-               _buildTitle("Skills"),
+              // _buildTitle("Rating"),
+             //  SizedBox(height: 10.0),
                SizedBox(height: 10.0),
-               _buildSkillRow("Wordpress",0.75),
-               SizedBox(height: 5.0),
-               _buildSkillRow("Laravel",0.6),
-               SizedBox(height: 5.0),
-               _buildSkillRow("React JS",0.65),
-               SizedBox(height: 5.0),
-               _buildSkillRow("Flutter",0.5),
-               SizedBox(height: 30.0),
+               rating(4),
+               SizedBox(height: 10.0),
 
-               _buildTitle("Experience"),
+               _buildTitle(""),
                _buildExperienceRow(company: "GID Nepal", position: "Wordpress Developer", duration: "2010 - 2012"),
                _buildExperienceRow(company: "Lohani Tech", position: "Laravel Developer", duration: "2012 - 2015"),
                _buildExperienceRow(company: "Popup Bits Pvt. Ltd.", position: "Web Developer", duration: "2015 - 2018"),
@@ -159,22 +155,27 @@ class ProfileFourPage extends StatelessWidget {
      }
 
 
-     Row _buildSkillRow(String skill, double level) {
-       return Row(
-         children: <Widget>[
-           SizedBox(width: 16.0),
-           Expanded(
-             flex: 2,
-             child: Text(skill.toUpperCase(), textAlign: TextAlign.right,)),
-           SizedBox(width: 10.0),
-           Expanded(
-             flex: 5,
-             child: LinearProgressIndicator(
-               value: level,
-             ),
-           ),
-           SizedBox(width: 16.0),
-         ],
+     Widget rating(int score) { //4
+       double starSize=30;
+       List<Widget> iconList=[];
+       //iconList.add(Text('Rating :  ',style: TextStyle(fontSize:25.0),));
+       for(int i=0;i<score;i++){
+         iconList.add(Icon(Icons.star,color:Colors.yellowAccent,size: starSize,));
+
+       }
+       for(int i=score;i<5;i++){
+         iconList.add(Icon(Icons.star_border,size: starSize));
+       }
+       iconList.add( SizedBox(width: 30.0));
+       iconList.add(Text('${score}',style: TextStyle(fontSize: starSize+10),));
+
+
+       return Padding(
+         padding: const EdgeInsets.only( left: 16.0),
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: iconList,
+         ),
        );
      }
 
@@ -194,6 +195,14 @@ class ProfileFourPage extends StatelessWidget {
          ),
        );
      }
+
+
+
+
+
+
+
+
 
 
      Row _buildHeader() {
