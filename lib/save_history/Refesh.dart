@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
+import 'Detail.dart';
 
 
 
@@ -64,6 +64,10 @@ class _RefreshState extends State<Refresh> {
               onTap: (){
                // print('print...............................');
                 // pop up new page and pass data to it
+
+
+
+
               },
               child: Padding(
                 padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),

@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'save_history/save_history.dart';
 
-void main() {
-  runApp(MaterialApp(
+//void main() {
+  //runApp(MaterialApp(
 
-      title: "Using Tabs",
-      home: SwipeRoute()));
-}
+     // title: "Using Tabs",
+     // home: SwipeRoute()));
+//}
 
 class SwipeRoute extends StatefulWidget {
   @override
@@ -53,7 +53,7 @@ class SwipeRouteState extends State<SwipeRoute> with SingleTickerProviderStateMi
     );
   }
 
-  TabBarView getTabBarView(var tabs) {  //tabs accpected array
+  TabBarView getTabBarView(var tabs) {  //tabs accpeted list
     return TabBarView(
       children: tabs,
       controller: controller,
