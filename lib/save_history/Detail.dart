@@ -10,24 +10,16 @@ class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
     body:ProfileFourPage()
-
-
     );
   }
 }
-
-
-
 
 class ProfileFourPage extends StatelessWidget {
      //static final String path = "lib/src/pages/profile/profile4.dart";
      @override
      Widget build(BuildContext context){
        return Scaffold(
-
          body: SingleChildScrollView(
            child:
            Column(
@@ -37,60 +29,78 @@ class ProfileFourPage extends StatelessWidget {
                _buildHeader(),
 
                Container(
-                 margin: const EdgeInsets.all(16.0),
+                 //margin: const EdgeInsets.all(16.0),
                  padding: const EdgeInsets.all(16.0),
-                 decoration: BoxDecoration(
-                   color: Colors.grey.shade200
-                 ),
-                 child: Text("Over 8+ years of experience and web development and 5+ years of experience in mobile applications development "),
+                // decoration: BoxDecoration(
+                   //color: Colors.grey.shade200
+                // ),
+                 //child: Text("Over 8+ years of experience and web development and 5+ years of experience in mobile applications development "),
                ),
               // _buildTitle("Rating"),
              //  SizedBox(height: 10.0),
+               //SizedBox(height: 10.0),
+               //_buildTitle(""),
+               //_buildExperienceRow(company: "Time : ", position: "Wordpress Developer", duration: "2010 - 2012"),
+               //_buildExperienceRow(company: "Address : ", position: "Laravel Developer", duration: "2012 - 2015"),
+               //_buildExperienceRow(company: "Seats : ", position: "Web Developer", duration: "2015 - 2018"),
+               //_buildExperienceRow(company: "Price :", position: "Flutter Developer", duration: "2018 - Current"),
+
+
+               //SizedBox(height: 20.0),
+               //SizedBox(height: 20.0),
+               //SizedBox(height: 5.0),
+               Row(
+                 children: <Widget>[
+                   SizedBox(width: 30.0),
+                   Icon(Icons.watch_later, color: Colors.black54,size: 40.0,),
+                   SizedBox(width: 10.0),
+                   Text("Time : ", style: TextStyle(
+                     fontSize: 25.0
+                   ),),
+                 ],
+               ),
                SizedBox(height: 10.0),
+               Row(
+                 children: <Widget>[
+                   SizedBox(width: 30.0),
+                   Icon(Icons.home, color: Colors.black54,size: 40.0),
+                   SizedBox(width: 10.0),
+                   Text("Address :", style: TextStyle(
+                     fontSize: 25.0
+                   ),),
+                 ],
+               ),
+               SizedBox(height: 5.0),
+               Row(
+                 children: <Widget>[
+                   SizedBox(width: 30.0),
+                   Icon(Icons.event_seat, color: Colors.black54,size: 40.0),
+                   SizedBox(width: 20.0),
+                   Text("Seats : ", style: TextStyle(
+                       fontSize: 25.0
+                   ),),
+                   Icon(Icons.child_care, color: Colors.black54,size: 30.0),
+                   Icon(Icons.child_care, color: Colors.black54,size: 30.0),
+                   Icon(Icons.child_care, color: Colors.black54,size: 30.0),
+                   //Text("dlohani48@gmail.com", style: TextStyle(
+                     //  fontSize: 25.0
+                  // ),),
+                 ],
+               ),
+               SizedBox(height: 5.0),
+               Row(
+                 children: <Widget>[
+                   SizedBox(width: 30.0),
+                   Icon(Icons.attach_money, color: Colors.black54,size: 40.0),
+                   SizedBox(width: 10.0),
+                   Text("15/hour", style: TextStyle(
+                       fontSize: 25.0
+                   ),),
+                 ],
+               ),
+               //_buildSocialsRow(),
+               SizedBox(height: 40.0),
                rating(4),
-               SizedBox(height: 10.0),
-
-               _buildTitle(""),
-               _buildExperienceRow(company: "GID Nepal", position: "Wordpress Developer", duration: "2010 - 2012"),
-               _buildExperienceRow(company: "Lohani Tech", position: "Laravel Developer", duration: "2012 - 2015"),
-               _buildExperienceRow(company: "Popup Bits Pvt. Ltd.", position: "Web Developer", duration: "2015 - 2018"),
-               _buildExperienceRow(company: "Popup Bits Pvt. Ltd.", position: "Flutter Developer", duration: "2018 - Current"),
-
-
-               SizedBox(height: 20.0),
-               _buildTitle("Education"),
-               SizedBox(height: 5.0),
-               _buildExperienceRow(company: "Tribhuvan University, Nepal", position: "B.Sc. Computer Science and Information Technology", duration: "2011 - 2015"),
-               _buildExperienceRow(company: "Cambridge University, UK", position: "A Level", duration: "2008 - 2010"),
-               _buildExperienceRow(company: "Nepal Board", position: "SLC", duration: "2008"),
-
-
-               SizedBox(height: 20.0),
-               _buildTitle("Contact"),
-               SizedBox(height: 5.0),
-               Row(
-                 children: <Widget>[
-                   SizedBox(width: 30.0),
-                   Icon(Icons.mail, color: Colors.black54,),
-                   SizedBox(width: 10.0),
-                   Text("dlohani48@gmail.com", style: TextStyle(
-                     fontSize: 16.0
-                   ),),
-                 ],
-               ),
-               SizedBox(height: 10.0),
-               Row(
-                 children: <Widget>[
-                   SizedBox(width: 30.0),
-                   Icon(Icons.phone, color: Colors.black54,),
-                   SizedBox(width: 10.0),
-                   Text("+977-9818523107", style: TextStyle(
-                     fontSize: 16.0
-                   ),),
-                 ],
-               ),
-               _buildSocialsRow(),
-               SizedBox(height: 20.0),
              ],
            ),
          ),
@@ -98,6 +108,14 @@ class ProfileFourPage extends StatelessWidget {
      }
 
 
+
+
+
+
+
+
+
+     //helper functions list
      Row _buildSocialsRow() {
        return Row(
                children: <Widget>[
@@ -140,23 +158,25 @@ class ProfileFourPage extends StatelessWidget {
      }
 
 
-     ListTile _buildExperienceRow({String company, String position, String duration}) {
-       return ListTile(
-         leading: Padding(
+     Widget _buildExperienceRow({String company, String position, String duration}) {
+       return
+         Padding(
            padding: const EdgeInsets.only(top: 8.0, left: 20.0),
-           child: Icon(Icons.more_vert, size: 12.0, color: Colors.black54,),
-         ),
-         title: Text(company, style: TextStyle(
-           color: Colors.black,
-           fontWeight: FontWeight.bold
-         ),),
-         subtitle: Text("$position ($duration)"),
-       );
+           child:Column(
+             children: <Widget>[
+               Row(children: <Widget>[
+                 Text(company,style:TextStyle(fontSize: 20.0),)
+               ],),
+             ],
+           ),
+         );
+
+
      }
 
 
      Widget rating(int score) { //4
-       double starSize=30;
+       double starSize=40;
        List<Widget> iconList=[];
        //iconList.add(Text('Rating :  ',style: TextStyle(fontSize:25.0),));
        for(int i=0;i<score;i++){
