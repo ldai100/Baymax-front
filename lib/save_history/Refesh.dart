@@ -28,8 +28,9 @@ class _RefreshState extends State<Refresh> {
 
   Future<Null> refreshList() async {
     refreshKey.currentState?.show(atTop: false);
-    await Future.delayed(Duration(seconds: 1));
 
+    //this is the place for HTTP called updated
+    await Future.delayed(Duration(seconds: 1));
     setState(() {
       for(int i=0;i<list.length;i++){
         list[i]='Data ${(i+1)*counter}';
@@ -59,7 +60,6 @@ class _RefreshState extends State<Refresh> {
               onTap: (){
                // print('print...............................');
                 // pop up new page and pass data to it
-
 
 
 

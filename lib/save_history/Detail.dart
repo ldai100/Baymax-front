@@ -28,27 +28,36 @@ class ProfileFourPage extends StatelessWidget {
                SizedBox(height: 10.0),
                _buildHeader(),
 
-               Container(
-                 //margin: const EdgeInsets.all(16.0),
-                 padding: const EdgeInsets.all(16.0),
-                // decoration: BoxDecoration(
-                   //color: Colors.grey.shade200
-                // ),
-                 //child: Text("Over 8+ years of experience and web development and 5+ years of experience in mobile applications development "),
+
+           Container(
+             margin:EdgeInsets.all(10.0),
+             child: RaisedButton(
+
+               onPressed: () {
+                 //leave a quick message
+
+               },
+               textColor: Colors.white,
+               padding: const EdgeInsets.all(0.0),
+               child: Container(
+                 decoration: const BoxDecoration(
+                   gradient: LinearGradient(
+                     colors: <Color>[
+                       Color(0xFFE44336),
+                       Color(0XFFE57373),
+                       Color(0XFFFFEBEE),
+                     ],
+                   ),
+                 ),
+                 padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
+                 child: const Text(
+                     'Message',
+                     style: TextStyle(fontSize: 20)
+                 ),
                ),
-              // _buildTitle("Rating"),
-             //  SizedBox(height: 10.0),
-               //SizedBox(height: 10.0),
-               //_buildTitle(""),
-               //_buildExperienceRow(company: "Time : ", position: "Wordpress Developer", duration: "2010 - 2012"),
-               //_buildExperienceRow(company: "Address : ", position: "Laravel Developer", duration: "2012 - 2015"),
-               //_buildExperienceRow(company: "Seats : ", position: "Web Developer", duration: "2015 - 2018"),
-               //_buildExperienceRow(company: "Price :", position: "Flutter Developer", duration: "2018 - Current"),
-
-
-               //SizedBox(height: 20.0),
-               //SizedBox(height: 20.0),
-               //SizedBox(height: 5.0),
+             ),
+           ) ,
+               SizedBox(height:10.0),
                Row(
                  children: <Widget>[
                    SizedBox(width: 30.0),

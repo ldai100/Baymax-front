@@ -4,6 +4,9 @@ class Draw extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+
+  // the display of the drawer should be accorded to the User data   User.dart
+
   @override
   Widget build(BuildContext context) {
     return  Drawer(

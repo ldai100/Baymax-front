@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'SwipeRoute.dart';
+import 'package:flutter_first_app/Sample/SwipeRoute.dart';
 
 //import 'package:flutter/material.dart';
 import 'explore/explore.dart';
 import 'profile/profile.dart';
 import 'save_history/save_history.dart';
 import 'save_history/Detail.dart';
-import 'Sample/NavDrawer.dart';
+
 import 'Sample/Draw.dart';
+import 'login/Login.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -64,7 +67,7 @@ class _HomeState extends State<Home> {
     }
 
     //Add 3 main pages to a list by using cascade notation.
-    list..add(SaveHistory())..add(NavDrawer())..add(Detail());
+    list..add(SaveHistory())..add(LoginScreen())..add(Detail());
   }
 
   // @override
