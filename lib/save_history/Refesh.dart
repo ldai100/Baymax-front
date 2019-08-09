@@ -8,12 +8,7 @@ class Refresh extends StatefulWidget {
   @override
   _RefreshState createState() => new _RefreshState();
 }
-
-
-
 class _RefreshState extends State<Refresh> {
-
-
   List<String> list=[]; //default data
   var refreshKey = GlobalKey<RefreshIndicatorState>();
   int counter=2;

@@ -7,7 +7,8 @@ import 'explore/explore.dart';
 import 'profile/profile.dart';
 import 'save_history/save_history.dart';
 import 'save_history/Detail.dart';
-
+import 'Sample/NavDrawer.dart';
+import 'Sample/Draw.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,7 +64,7 @@ class _HomeState extends State<Home> {
     }
 
     //Add 3 main pages to a list by using cascade notation.
-    list..add(SaveHistory())..add(SaveHistory())..add(Detail());
+    list..add(SaveHistory())..add(NavDrawer())..add(Detail());
   }
 
   // @override
@@ -74,18 +75,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Draw(),
       appBar: AppBar(
         title: Text(appBarTitle),
       ),
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: myTabs,
-
         currentIndex: _currentIndex,
-
         onTap: _ItemTapped,
-
-
         type: BottomNavigationBarType.fixed,
 
         fixedColor: Color(0xFFC91B3A),
