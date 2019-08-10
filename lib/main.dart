@@ -13,6 +13,10 @@ class MyApp extends StatelessWidget {
      home: HomeScreen(),
    );
  }}
+ ThemeData appTheme = 
+  ThemeData(primaryColor: Color(0xFFF3891A),fontFamily: 'Oxygen');
+
+    var isBabySelected = true;
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -21,6 +25,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           HomeScreenTopPart(),
+          HomeScreenBottomPart(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -57,8 +62,6 @@ class HomeScreenTopPart extends StatefulWidget {
 }
 
 class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
-
-  var isBabySelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -169,3 +172,189 @@ class _ChoiceChipState extends State<ChoiceChip> {
     );
   }
 }
+
+
+
+
+class HomeScreenBottomPart extends StatefulWidget {
+  @override
+  _HomeScreenBottomPartState createState() => _HomeScreenBottomPartState();
+}
+
+class _HomeScreenBottomPartState extends State<HomeScreenBottomPart> {
+  @override
+  Widget build(BuildContext context) {
+    if(isBabySelected){
+      return Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+          child:
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              SizedBox(width: 16.0,),
+              Text('Recommendation', style: TextStyle(color: Colors.black, fontSize: 16.0),),
+              Spacer(),
+              Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
+              ]
+            ),
+          ),
+          Container(
+            height: 210.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: babyCardList,
+            ),
+          ),
+        ],
+      );
+    }else{
+      return Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+          child:
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              SizedBox(width: 16.0,),
+              Text('Recommendation', style: TextStyle(color: Colors.black, fontSize: 16.0),),
+              Spacer(),
+              Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
+              ]
+            ),
+          ),
+          Container(
+            height: 210.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: babyCardList,
+            ),
+          ),
+        ],
+      );
+    }
+  }
+}
+
+
+
+
+
+/*
+class HomeScreenBottomPart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        child:
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+            SizedBox(width: 16.0,),
+            Text('Recommendation', style: TextStyle(color: Colors.black, fontSize: 16.0),),
+            Spacer(),
+            Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
+            ]
+          ),
+        ),
+        Container(
+          height: 210.0,
+          child: isBabySelected ? ListView(
+            scrollDirection: Axis.horizontal,
+            children: babyCardList,
+          ):null,
+        ),
+      ],
+    );
+  }
+}
+*/
+
+List<BabyCard> babyCardList =[
+  BabyCard('baby_img/diamond.png', '8/8/2019', 'Six months', '14', 'Flushing', 'andy'),
+  BabyCard('baby_img/candy.png', '8/6/2019', 'Four months', '12', 'Flushing', 'candy'),
+  BabyCard('baby_img/mason.png', '12/8/2019', 'Five months', '17', 'Flushing', 'mason'),
+  BabyCard('baby_img/wen.png', '10/8/2019', 'Two months', '11', 'Flushing', 'wen'),
+];
+
+
+class BabyCard extends StatelessWidget {
+  final String babyImgPath, babyDate, babyAge, babyPricePerHour, babylocation, babyTitle;
+
+  BabyCard(this.babyImgPath, this.babyDate, this.babyAge, this.babyPricePerHour, this.babylocation, this.babyTitle);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: 210.0,
+          width: 160.0,
+          child: new Image.asset(babyImgPath, fit: BoxFit.cover),
+        ),
+      ],
+    );
+  }
+}
+
+
+
+List<SitterCard> SitterCardList =[
+  SitterCard('sitter_img/apple.png', '8/8/2019', '28', '14', 'Flushing', 'apple'),
+  SitterCard('sitter_img/banana.png', '8/6/2019', '27', '12', 'Flushing', 'banana'),
+  SitterCard('sitter_img/mango.png', '12/8/2019', '29', '17', 'Flushing', 'mango'),
+  SitterCard('sitter_img/orange.png', '10/8/2019', '33', '11', 'Flushing', 'orange'),
+  SitterCard('sitter_img/cherry.png', '10/8/2019', '25', '11', 'Flushing', 'cherry'),
+
+];
+
+class SitterCard extends StatelessWidget {
+
+  final String sitterImgPath, sitterDate, sitterAge, sitterPricePerHour, sitterlocation, sitterTitle;
+
+  SitterCard(this.sitterImgPath, this.sitterDate, this.sitterAge, this.sitterPricePerHour,this.sitterlocation, this.sitterTitle);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: 210.0,
+          width: 160.0,
+          child: new Image.asset(sitterImgPath, fit: BoxFit.cover),
+        ),
+      ],
+    );
+  }
+}
+
+
+/*
+var viewAllStyle = TextStyle(fontSize: 14.0, color: appTheme.primaryColor);
+
+var homeScreenBottomPart = Column(
+    children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+      ),
+      Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+        SizedBox(width: 16.0,),
+        Text('Current Watched Items', style: TextStyle(color: Colors.black, fontSize: 16.0),),
+        Spacer(),
+        Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
+        ]
+      ),
+    ],
+  );
+
+  */
