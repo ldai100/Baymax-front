@@ -12,13 +12,7 @@ class _ExploreState extends State<Explore> {
     return Scaffold(
       body:
       Container(
-          child:
-          Column(
-            children: <Widget>[
-              HomeScreenTopPart(),
-              // HomeScreenBottomPart()
-            ],
-          )
+          child:HomeScreenTopPart()
       ),
     );
   }
@@ -34,76 +28,80 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
   var isBabySelected = true;
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: <Widget>[
-        ClipPath(clipper: CustomShapeClipper(),
-          child: Container(
-            height: 500.0,
-            color: Colors.orange,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.location_on,color: Colors.white,),
-                        tooltip: 'comfirm current location',
-                        onPressed: null,
-                      ),
-                    ],
-                  ),
-                ),
-                //SizedBox(height: 50.0),
-                Text('You Are Looking for', style:TextStyle(fontSize: 24.0, color: Colors.white,),textAlign: TextAlign.center,),
-                SizedBox(height: 20.0),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Stack(
+          children: <Widget>[
+            ClipPath(clipper: CustomShapeClipper(),
+              child: Container(
+                height: 300.0,
+                color: Colors.orange,
+                child: Column(
                   children: <Widget>[
-                    InkWell(
-                        child: ChoiceChip(Icons.child_care,"Babies",isBabySelected),
-                        onTap: (){
-                          setState(() {
-                            isBabySelected = true;
-                          });
-                        }),
-                    SizedBox(width: 20.0),
-                    InkWell(
-                      child: ChoiceChip(Icons.folder_shared,"Babysitters",!isBabySelected),
-                      onTap: (){
-                        setState(() {
-                          isBabySelected = false;
-                        });
-                      },),
-                  ],
-                ),
-                SizedBox(height: 30.0),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0),
-                  child: Material(
-                    elevation: 5.0,
-                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                    child: TextField(
-                      // controller: TextEditingController(text:'ENTER HERE TO SEARCH'),
-                      decoration: InputDecoration(
-                        hintText: 'ENTER HERE TO SEARCH',
-                        contentPadding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 14.0),
-                        suffixIcon: Material(
-                          elevation: 2.0,
-                          borderRadius: BorderRadius.all(Radius.circular(30.0),),
-                          child:Icon(Icons.search, color: Colors.black,),
-                        ),
-                        border:InputBorder.none,
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(Icons.location_on,color: Colors.white,),
+                            tooltip: 'comfirm current location',
+                            onPressed: null,
+                          ),
+                        ],
                       ),
                     ),
-                  ),
+                    //SizedBox(height: 50.0),
+                    Text('You Are Looking for', style:TextStyle(fontSize: 24.0, color: Colors.white,),textAlign: TextAlign.center,),
+                    SizedBox(height: 20.0),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        InkWell(
+                            child: ChoiceChip(Icons.child_care,"Babies",isBabySelected),
+                            onTap: (){
+                              setState(() {
+                                isBabySelected = true;
+                              });
+                            }),
+                        SizedBox(width: 20.0),
+                        InkWell(
+                          child: ChoiceChip(Icons.folder_shared,"Babysitters",!isBabySelected),
+                          onTap: (){
+                            setState(() {
+                              isBabySelected = false;
+                            });
+                          },),
+                      ],
+                    ),
+                    SizedBox(height: 30.0),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 32.0),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        child: TextField(
+                          // controller: TextEditingController(text:'ENTER HERE TO SEARCH'),
+                          decoration: InputDecoration(
+                            hintText: 'ENTER HERE TO SEARCH',
+                            contentPadding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 14.0),
+                            suffixIcon: Material(
+                              elevation: 2.0,
+                              borderRadius: BorderRadius.all(Radius.circular(30.0),),
+                              child:Icon(Icons.search, color: Colors.black,),
+                            ),
+                            border:InputBorder.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                HomeScreenBottomPart1(isBabySelected),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
+        HomeScreenBottomPart1(isBabySelected)
       ],
     );
   }

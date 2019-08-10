@@ -87,9 +87,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Draw(),
-      appBar: AppBar(
-        title: Text(appBarTitle),
-      ),
+      //appBar: AppBar(
+        //title: Text(appBarTitle),
+     // ),
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: myTabs,
