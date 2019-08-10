@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Validator.dart';
 
+
+//A Form example in dart
 class LoginScreen extends StatefulWidget {
   createState() {
     return LoginScreenState();
@@ -63,10 +65,11 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
       color: Colors.blue,
       child: Text('Submit!'),
       onPressed: () {
-        if (formKey.currentState.validate()) {
+        if (formKey.currentState.validate()) { //return false if it is not validate by thr validator
+
           formKey.currentState.save(); //on save method for the form is called
 
-          //The value is used in HTTP Request
+          //The value should be used in HTTP Request
           print('Time to post $email and $password to my API');
         }
       },

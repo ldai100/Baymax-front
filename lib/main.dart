@@ -10,7 +10,7 @@ import 'save_history/Detail.dart';
 
 import 'Sample/Draw.dart';
 import 'login/Login.dart';
-
+import 'explore/explore.dart';
 
 
 void main() => runApp(MyApp());
@@ -25,6 +25,14 @@ class MyApp extends StatelessWidget {
    );
  }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -67,7 +75,7 @@ class _HomeState extends State<Home> {
     }
 
     //Add 3 main pages to a list by using cascade notation.
-    list..add(SaveHistory())..add(LoginScreen())..add(Detail());
+    list..add(Explore())..add(LoginScreen())..add(Detail());
   }
 
   // @override
