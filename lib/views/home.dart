@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
   static List tabData = [
     {'text': 'Explore', 'icon': Icon(Icons.explore)},
     {'text': 'Saved', 'icon': Icon(Icons.favorite)},
-    {'text': 'Profile', 'icon': Icon(Icons.person)}
+    {'text': 'Profile', 'icon': Icon(Icons.person)},
   ];
 
   List<BottomNavigationBarItem> myTabs = [];
@@ -43,7 +43,10 @@ class _HomeState extends State<Home> {
     }
 
     //Add 3 main pages to a list by using cascade notation.
-    list..add(ExplorePage())..add(CollectionPage())..add(ProfilePage());
+    list
+    ..add(ExplorePage())
+    ..add(CollectionPage())
+    ..add(ProfilePage());
   }
 
   // @override

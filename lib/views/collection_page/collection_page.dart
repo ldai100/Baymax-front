@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_first_app/views/post_detail.dart';
 
 class CollectionPage extends StatefulWidget {
   @override
@@ -8,31 +9,26 @@ class CollectionPage extends StatefulWidget {
 }
 
 class CollectionPageState extends State<CollectionPage> {
-  
-
   final String url = "https://swapi.co/api/people";
 
   List _collectionList = [];
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     this.getJsonData();
   }
-  
+
   Future<String> getJsonData() async {
-    var response = await http.get(
-      Uri.encodeFull(url),
-      headers: {"Accept": "application/json"}
-      );
+    var response = await http
+        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
 
-      print(response.body);
+    //print(response.body);
 
-      setState((){
-        var convertDataToJson = json.decode(response.body);
-        _collectionList = convertDataToJson['results'];
-      });
-
+    setState(() {
+      var convertDataToJson = json.decode(response.body);
+      _collectionList = convertDataToJson['results'];
+    });
   }
 
   // List _collectionList = ['I am Carol, a very good babysitter.','I am available 2:00 pm.','I am Dan. Nice to meet you.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.'];
@@ -40,7 +36,7 @@ class CollectionPageState extends State<CollectionPage> {
   ScrollController _scrollController = new ScrollController();
 
   @override
-  void dispose(){
+  void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
@@ -64,7 +60,6 @@ class CollectionPageState extends State<CollectionPage> {
         ),
       );
     }
-    
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
@@ -94,10 +89,16 @@ class CollectionPageState extends State<CollectionPage> {
         trailing:
             Icon(Icons.keyboard_arrow_right, color: Colors.grey, size: 30.0),
         onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PostDetails()),
+          );
         },
       ),
     );
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +118,7 @@ class CollectionPageState extends State<CollectionPage> {
         ],
       );
     }
-    
+
     return ListView.builder(
       itemBuilder: _renderList,
       itemCount: _collectionList == null ? 0 : _collectionList.length,
