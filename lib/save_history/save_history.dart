@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'Refesh.dart';
-import '../Sample/Draw.dart';
+import 'package:flutter_first_app/views/Draw.dart';
 
 class SaveHistory extends StatelessWidget {
   @override
