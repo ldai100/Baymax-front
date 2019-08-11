@@ -3,7 +3,7 @@ import 'collection_page/collection_page.dart';
 import 'explore_page/explore_page.dart';
 import 'profile_page/profile_page.dart';
 import 'Draw.dart';
-
+import '../Sample/Card.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
 
     //Add 3 main pages to a list by using cascade notation.
     list
-    ..add(Explore())
+    ..add(UserCard())
     ..add(CollectionPage())
     ..add(ProfilePage());
   }
