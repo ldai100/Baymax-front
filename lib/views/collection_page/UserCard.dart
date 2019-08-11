@@ -33,9 +33,18 @@ class _UserCardState extends State<UserCard> {
               left: 50.0,
               child: dogCard,
             ),
-            Positioned(top: 7.5, child: Image.network("https://tu.jiuwa.net/pic/20190107/1546869411485245.jpeg",
-                width:100,
-                height:100
+            Positioned(top: 7.5, child: Container(
+               width:100,
+               height:100,
+                decoration: new BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: new DecorationImage(
+                        fit: BoxFit.fill,
+                        image: new NetworkImage(
+                            "https://tu.jiuwa.net/pic/20190107/1546869411485245.jpeg")
+                    )
+                )
+
             )),
           ],
         ),
