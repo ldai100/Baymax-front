@@ -12,16 +12,32 @@ class CollectionPage extends StatefulWidget {
 
 class CollectionPageState extends State<CollectionPage> {
   final String url = "https://swapi.co/api/people";
-
+  bool _loading=false;
   List _collectionList = [];
+  double _lastPos=0.0;
+  //ScrollController _controller = ScrollController();
+  ScrollController _scrollController = new ScrollController();
 
   @override
   void initState() {
+    _loading=true;
     super.initState();
     this.getJsonData();
   }
 
-  Future<String> getJsonData() async {
+  Future<dynamic> loadMore() async{
+
+    var response = await http.get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
+    var convertDataToJson = json.decode(response.body);
+
+    setState((){
+      _collectionList= _collectionList..addAll(convertDataToJson['results']);
+      _loading=false;
+    });
+  }
+
+
+  Future<dynamic> getJsonData() async {
     var response = await http
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
 
@@ -30,12 +46,13 @@ class CollectionPageState extends State<CollectionPage> {
     setState(() {
       var convertDataToJson = json.decode(response.body);
       _collectionList = convertDataToJson['results'];
+      _loading=false;
     });
   }
 
   // List _collectionList = ['I am Carol, a very good babysitter.','I am available 2:00 pm.','I am Dan. Nice to meet you.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.','Lorem ipsum dolor sit amet, consectetur adipiscing elit.'];
 
-  ScrollController _scrollController = new ScrollController();
+
 
   @override
   void dispose() {
@@ -45,10 +62,8 @@ class CollectionPageState extends State<CollectionPage> {
 
 
 
-
-
   Widget _renderList(context, index) {
-    if (index == 0) {
+    if (index==0) {
       return Container(
         height: 40.0,
         padding: const EdgeInsets.only(left: 10.0),
@@ -96,14 +111,33 @@ class CollectionPageState extends State<CollectionPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (_collectionList.length == 0) {
+    if (this._loading) {
       return CatAnimation();
     }
+    _scrollController = ScrollController(initialScrollOffset: this._lastPos);
+    //_scrollController.jumpTo(this._lastPos);
+    return NotificationListener<ScrollNotification>(
+        onNotification: (ScrollNotification scrollInfo)
+        {
+          if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent)
+          {
+            if(!_loading){
+              setState((){
+                this._lastPos=scrollInfo.metrics.maxScrollExtent;
+                _loading=true;
+                loadMore();
+              });
+            }
 
-    return ListView.builder(
-      itemBuilder: _renderList,
-      itemCount: _collectionList == null ? 0 : _collectionList.length,
-      controller: _scrollController,
+          }
+          return true;
+      },
+      child: ListView.builder(
+        //controller: _controller,
+        itemBuilder: _renderList,
+        itemCount: _collectionList == null ? 0 : _collectionList.length,
+        controller: _scrollController,
+      ),
     );
   }
 
