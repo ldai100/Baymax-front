@@ -4,7 +4,7 @@ import 'explore_page/explore_page.dart';
 import 'profile_page/profile_page.dart';
 import 'Draw.dart';
 import '../Sample/Card.dart';
-import '../Sample/CatAnimation.dart';
+import 'collection_page//CatAnimation.dart';
 
 class Home extends StatefulWidget {
   @override
