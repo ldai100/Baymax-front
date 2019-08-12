@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
-import 'CustomShapeClipper.dart';
-import 'save_history/save_history.dart';
-import 'list.dart';
-
+import 'homeScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +11,9 @@ class MyApp extends StatelessWidget {
      home: HomeScreen(),
    );
  }}
- ThemeData appTheme = 
+
+
+ /*ThemeData appTheme = 
   ThemeData(primaryColor: Color(0xFFF3891A),fontFamily: 'Oxygen');
 
 class HomeScreen extends StatelessWidget {
@@ -53,6 +50,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+/*
 class HomeScreenTopPart extends StatefulWidget {
 
   @override
@@ -148,6 +146,7 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
   }
 }
 
+/*
 class ChoiceChip extends StatefulWidget {
 
   final IconData icon;
@@ -182,6 +181,7 @@ class _ChoiceChipState extends State<ChoiceChip> {
     );
   }
 }
+
 
 class HomeScreenBottomPart extends StatefulWidget { 
    final bool isSelected;
@@ -232,6 +232,7 @@ List getList(bool isSelected){
   else
     return sitterCardList;
 }
+
 
 final formatCurrency = NumberFormat.simpleCurrency();
 
@@ -326,6 +327,7 @@ class BabyCard extends StatelessWidget {
 
 
 
+
 List<SitterCard> sitterCardList =[
   SitterCard('sitter_img/apple.png', '8/8/2019', '28', 14.0, 'Flushing', 'apple'),
   SitterCard('sitter_img/banana.png', '8/6/2019', '27', 12.5, 'Flushing', 'banana'),
@@ -417,3 +419,4 @@ class SitterCard extends StatelessWidget {
     );
   }
 }
+*/*/*/
