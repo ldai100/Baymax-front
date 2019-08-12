@@ -12,7 +12,7 @@ class CollectionPageState extends State<CollectionPage> {
   final String url = "https://swapi.co/api/people";
 
   List _collectionList = [];
-
+  
   @override
   void initState() {
     super.initState();
