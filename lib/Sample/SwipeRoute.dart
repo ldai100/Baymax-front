@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '../save_history/save_history.dart';
+
 
 //void main() {
   //runApp(MaterialApp(
@@ -64,7 +64,7 @@ class SwipeRouteState extends State<SwipeRoute> with SingleTickerProviderStateMi
     return Scaffold(
       // Appbar
         bottomNavigationBar: getTabBar(),
-        body: getTabBarView([SaveHistory(),SaveHistory(),SaveHistory()]));
+        body: getTabBarView([]));
   }
 }
 

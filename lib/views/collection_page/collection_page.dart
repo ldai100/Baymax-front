@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_first_app/views/post_detail.dart';
-import 'UserCard.dart';
 import 'CatAnimation.dart';
+import '../post_list.dart';
 
 class CollectionPage extends StatefulWidget {
   @override
