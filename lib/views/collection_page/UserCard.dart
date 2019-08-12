@@ -33,7 +33,8 @@ class _UserCardState extends State<UserCard> {
               left: 50.0,
               child: dogCard,
             ),
-            Positioned(top: 7.5, child: Container(
+            Positioned(top: 7.5, child:
+            Container(
                width:100,
                height:100,
                 decoration: new BoxDecoration(
@@ -45,7 +46,8 @@ class _UserCardState extends State<UserCard> {
                     )
                 )
 
-            )),
+            )
+            ),
           ],
         ),
       ),

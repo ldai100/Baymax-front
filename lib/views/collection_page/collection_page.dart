@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_first_app/views/post_detail.dart';
 import 'UserCard.dart';
+import 'CatAnimation.dart';
 
 class CollectionPage extends StatefulWidget {
   @override
@@ -41,6 +42,10 @@ class CollectionPageState extends State<CollectionPage> {
     _scrollController.dispose();
     super.dispose();
   }
+
+
+
+
 
   Widget _renderList(context, index) {
     if (index == 0) {
@@ -92,20 +97,7 @@ class CollectionPageState extends State<CollectionPage> {
   @override
   Widget build(BuildContext context) {
     if (_collectionList.length == 0) {
-      return ListView(
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              // Image.asset(
-              //   'assets/images/nothing.png',
-              //   fit: BoxFit.contain,
-              //   width: MediaQuery.of(context).size.width / 2,
-              // ),
-              Text('No collection, go to explore it.'),
-            ],
-          ),
-        ],
-      );
+      return CatAnimation();
     }
 
     return ListView.builder(
@@ -114,4 +106,15 @@ class CollectionPageState extends State<CollectionPage> {
       controller: _scrollController,
     );
   }
+
 }
+
+
+
+
+
+
+
+
+
+
