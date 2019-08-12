@@ -14,8 +14,7 @@ class CollectionPageState extends State<CollectionPage> {
   final String url = "https://swapi.co/api/people";
   bool _loading=false;
   List _collectionList = [];
-  double _lastPos=0.0;
-  //ScrollController _controller = ScrollController();
+  double _lastPos=0.0; //remember where to jumo to
   ScrollController _scrollController = new ScrollController();
 
   @override

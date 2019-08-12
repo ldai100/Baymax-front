@@ -5,6 +5,7 @@ import 'profile_page/profile_page.dart';
 import 'Draw.dart';
 import '../Sample/Card.dart';
 import 'collection_page//CatAnimation.dart';
+import 'Explore1/explore_page.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -47,7 +48,7 @@ class _HomeState extends State<Home> {
     list
     ..add(CatAnimation())
     ..add(CollectionPage())
-    ..add(ProfilePage());
+    ..add(ExplorePage());
   }
 
   // @override
