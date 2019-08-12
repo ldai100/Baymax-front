@@ -18,120 +18,140 @@ class ProfileFourPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(0.0),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color(0xFFE44336),
-                        Color(0XFFE57373),
-                        Color(0XFFFFEBEE),
-                      ],
+            Expanded(
+              flex: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 5.0),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      textColor: Colors.white,
+                      padding: const EdgeInsets.all(0.0),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                              Color(0xFFE44336),
+                              Color(0XFFE57373),
+                              Color(0XFFFFEBEE),
+                            ],
+                          ),
+                        ),
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
+                        child:
+                            const Text('Back', style: TextStyle(fontSize: 20)),
+                      ),
                     ),
                   ),
-                  padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
-                  child: const Text('Back', style: TextStyle(fontSize: 20)),
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            _buildHeader(),
-
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: () {
-                  //leave a quick message
-                },
-                textColor: Colors.white,
-                padding: const EdgeInsets.all(0.0),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color(0xFFE44336),
-                        Color(0XFFE57373),
-                        Color(0XFFFFEBEE),
-                      ],
+                  SizedBox(height: 10.0),
+                  _buildHeader(),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        //leave a quick message
+                      },
+                      textColor: Colors.white,
+                      padding: const EdgeInsets.all(0.0),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: <Color>[
+                              Color(0xFFE44336),
+                              Color(0XFFE57373),
+                              Color(0XFFFFEBEE),
+                            ],
+                          ),
+                        ),
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
+                        child: const Text('Message',
+                            style: TextStyle(fontSize: 20)),
+                      ),
                     ),
                   ),
-                  padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
-                  child: const Text('Message', style: TextStyle(fontSize: 20)),
-                ),
+                ],
               ),
             ),
-            SizedBox(height: 10.0),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(
-                  Icons.watch_later,
-                  color: Colors.black54,
-                  size: 40.0,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  "Time : ",
-                  style: TextStyle(fontSize: 25.0),
-                ),
-              ],
-            ),
-            SizedBox(height: 10.0),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(Icons.home, color: Colors.black54, size: 40.0),
-                SizedBox(width: 10.0),
-                Text(
-                  "Address :",
-                  style: TextStyle(fontSize: 25.0),
-                ),
-              ],
-            ),
-            SizedBox(height: 5.0),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(Icons.event_seat, color: Colors.black54, size: 40.0),
-                SizedBox(width: 20.0),
-                Text(
-                  "Seats : ",
-                  style: TextStyle(fontSize: 25.0),
-                ),
-                Icon(Icons.child_care, color: Colors.black54, size: 30.0),
-                Icon(Icons.child_care, color: Colors.black54, size: 30.0),
-                Icon(Icons.child_care, color: Colors.black54, size: 30.0),
-                //Text("dlohani48@gmail.com", style: TextStyle(
-                //  fontSize: 25.0
-                // ),),
-              ],
-            ),
-            SizedBox(height: 5.0),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30.0),
-                Icon(Icons.attach_money, color: Colors.black54, size: 40.0),
-                SizedBox(width: 10.0),
-                Text(
-                  "15/hour",
-                  style: TextStyle(fontSize: 25.0),
-                ),
-              ],
+            Expanded(
+              flex: 2,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 10.0),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30.0),
+                      Icon(
+                        Icons.watch_later,
+                        color: Colors.black54,
+                        size: 40.0,
+                      ),
+                      SizedBox(width: 10.0),
+                      Text(
+                        "Time : ",
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10.0),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30.0),
+                      Icon(Icons.home, color: Colors.black54, size: 40.0),
+                      SizedBox(width: 10.0),
+                      Text(
+                        "Address :",
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 5.0),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30.0),
+                      Icon(Icons.event_seat, color: Colors.black54, size: 40.0),
+                      SizedBox(width: 20.0),
+                      Text(
+                        "Seats : ",
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                      Icon(Icons.child_care, color: Colors.black54, size: 30.0),
+                      Icon(Icons.child_care, color: Colors.black54, size: 30.0),
+                      Icon(Icons.child_care, color: Colors.black54, size: 30.0),
+                      //Text("dlohani48@gmail.com", style: TextStyle(
+                      //  fontSize: 25.0
+                      // ),),
+                    ],
+                  ),
+                  SizedBox(height: 5.0),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30.0),
+                      Icon(Icons.attach_money,
+                          color: Colors.black54, size: 40.0),
+                      SizedBox(width: 10.0),
+                      Text(
+                        "15/hour",
+                        style: TextStyle(fontSize: 25.0),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             //_buildSocialsRow(),
-            SizedBox(height: 40.0),
-            rating(4),
+            //SizedBox(height: 40.0),
+            Expanded(flex: 1, child: rating(4)),
           ],
         ),
       ),

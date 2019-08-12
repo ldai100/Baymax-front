@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_first_app/views/post_detail.dart';
+import 'UserCard.dart';
 
 class CollectionPage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class CollectionPageState extends State<CollectionPage> {
   final String url = "https://swapi.co/api/people";
 
   List _collectionList = [];
-  
+
   @override
   void initState() {
     super.initState();
@@ -61,44 +62,29 @@ class CollectionPageState extends State<CollectionPage> {
       );
     }
 
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-      margin: const EdgeInsets.only(bottom: 7.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          new BoxShadow(
-            color: const Color(0xFFd0d0d0),
-            blurRadius: 1.0,
-            spreadRadius: 2.0,
-            offset: Offset(3.0, 2.0),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => PostDetails()));
+      },
+      child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+          margin: const EdgeInsets.only(bottom: 7.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              new BoxShadow(
+                color: const Color(0xFFd0d0d0),
+                blurRadius: 1.0,
+                spreadRadius: 2.0,
+                offset: Offset(3.0, 2.0),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: ListTile(
-        leading: Icon(
-          Icons.person_outline,
-          size: 30.0,
-          color: Theme.of(context).primaryColor,
-        ),
-        title: Text(
-          Uri.decodeComponent(_collectionList[index]['name']),
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 17.0),
-        ),
-        trailing:
-            Icon(Icons.keyboard_arrow_right, color: Colors.grey, size: 30.0),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PostDetails()),
-          );
-        },
-      ),
+          child: UserCard(
+              Uri.decodeComponent(_collectionList[index]['name']), index)),
     );
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
