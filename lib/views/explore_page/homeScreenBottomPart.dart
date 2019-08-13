@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'sitterCard.dart';
-import 'babyCard.dart';
+import 'cards/sitterCard.dart';
+import 'cards/babyCard.dart';
 
  ThemeData appTheme = 
   ThemeData(primaryColor: Color(0xFFF3891A),fontFamily: 'Oxygen');

@@ -3,18 +3,22 @@ import 'package:intl/intl.dart';
 
 final formatCurrency = NumberFormat.simpleCurrency();
 
-List<BabyCard> babyCardList =[
-  BabyCard('baby_img/candy.png', '8/6/2019', '4 months', 12.0, 'Flushing', 'candy'),
-  BabyCard('baby_img/mason.png', '12/8/2019', '5 months', 17.0, 'Flushing', 'mason'),
-  BabyCard('baby_img/wen.png', '10/8/2019', '2 months', 11.0, 'Flushing', 'wen'),
+
+List<SitterCard> sitterCardList =[
+  SitterCard('https://images.unsplash.com/photo-1562887194-a50958050e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80', '8/8/2019', '28', 14.0, 'Flushing', 'apple'),
+  SitterCard('https://images.unsplash.com/photo-1562887194-a50958050e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80', '8/6/2019', '27', 12.5, 'Flushing', 'banana'),
+  SitterCard('https://images.unsplash.com/photo-1562887194-a50958050e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80', '12/8/2019', '29', 17, 'Flushing', 'mango'),
+  SitterCard('https://images.unsplash.com/photo-1562887194-a50958050e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80', '10/8/2019', '33', 11, 'Flushing', 'orange'),
+  SitterCard('https://images.unsplash.com/photo-1562887194-a50958050e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80', '10/8/2019', '25', 11, 'Flushing', 'cherry'),
+
 ];
 
+class SitterCard extends StatelessWidget {
 
-class BabyCard extends StatelessWidget {
-  final String babyImgPath, babyDate,babyAge, babylocation, babyTitle;
-  final double babyPricePerHour;
+  final String sitterImgPath, sitterDate, sitterAge, sitterlocation, sitterTitle;
+  final double  sitterPricePerHour;
 
-  BabyCard(this.babyImgPath, this.babyDate, this.babyAge, this.babyPricePerHour, this.babylocation, this.babyTitle);
+  SitterCard(this.sitterImgPath, this.sitterDate, this.sitterAge, this.sitterPricePerHour,this.sitterlocation, this.sitterTitle);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class BabyCard extends StatelessWidget {
                 Container(
                   height: 193.0,
                   width: 160.0,
-                  child: Image.asset(babyImgPath, fit: BoxFit.cover),
+                  child: CircleAvatar(backgroundImage: NetworkImage(sitterImgPath),)
                 ),
                 Positioned(
                   left: 0.0,
@@ -58,15 +62,15 @@ class BabyCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(babyTitle, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18.0)),
+                          Text(sitterTitle, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18.0)),
                           Row(
                             children: <Widget>[
                               Text(
-                                babyAge,
+                                sitterAge,
                                 style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white, fontSize: 14.0)),
                               SizedBox(width: 8,),
                               Text(
-                                babylocation,
+                                sitterlocation,
                                 style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white, fontSize: 18.0)),
                             ],
                           ),
@@ -81,9 +85,9 @@ class BabyCard extends StatelessWidget {
           Row(
             children: <Widget>[
               SizedBox(width: 5.0,),
-              Text(babyDate, style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+              Text(sitterDate, style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
               SizedBox(width: 5.0,),
-              Text('${formatCurrency.format(babyPricePerHour)}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),),
+              Text('${formatCurrency.format(sitterPricePerHour)}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),),
             ],
           ),
         ],

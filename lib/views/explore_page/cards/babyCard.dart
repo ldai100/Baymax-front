@@ -3,22 +3,18 @@ import 'package:intl/intl.dart';
 
 final formatCurrency = NumberFormat.simpleCurrency();
 
-
-List<SitterCard> sitterCardList =[
-  SitterCard('sitter_img/apple.png', '8/8/2019', '28', 14.0, 'Flushing', 'apple'),
-  SitterCard('sitter_img/banana.png', '8/6/2019', '27', 12.5, 'Flushing', 'banana'),
-  SitterCard('sitter_img/mango.png', '12/8/2019', '29', 17, 'Flushing', 'mango'),
-  SitterCard('sitter_img/orange.png', '10/8/2019', '33', 11, 'Flushing', 'orange'),
-  SitterCard('sitter_img/cherry.png', '10/8/2019', '25', 11, 'Flushing', 'cherry'),
-
+List<BabyCard> babyCardList =[
+  BabyCard('https://images.unsplash.com/photo-1533483595632-c5f0e57a1936?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', '8/6/2019', '4 months', 12.0, 'Flushing', 'candy'),
+  BabyCard('https://images.unsplash.com/photo-1533483595632-c5f0e57a1936?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', '12/8/2019', '5 months', 17.0, 'Flushing', 'mason'),
+  BabyCard('https://images.unsplash.com/photo-1533483595632-c5f0e57a1936?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', '10/8/2019', '2 months', 11.0, 'Flushing', 'wen'),
 ];
 
-class SitterCard extends StatelessWidget {
 
-  final String sitterImgPath, sitterDate, sitterAge, sitterlocation, sitterTitle;
-  final double  sitterPricePerHour;
+class BabyCard extends StatelessWidget {
+  final String babyImgPath, babyDate,babyAge, babylocation, babyTitle;
+  final double babyPricePerHour;
 
-  SitterCard(this.sitterImgPath, this.sitterDate, this.sitterAge, this.sitterPricePerHour,this.sitterlocation, this.sitterTitle);
+  BabyCard(this.babyImgPath, this.babyDate, this.babyAge, this.babyPricePerHour, this.babylocation, this.babyTitle);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +30,7 @@ class SitterCard extends StatelessWidget {
                 Container(
                   height: 193.0,
                   width: 160.0,
-                  child: Image.asset(sitterImgPath, fit: BoxFit.cover),
+                  child: CircleAvatar(backgroundImage: NetworkImage(babyImgPath),)
                 ),
                 Positioned(
                   left: 0.0,
@@ -62,15 +58,15 @@ class SitterCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(sitterTitle, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18.0)),
+                          Text(babyTitle, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18.0)),
                           Row(
                             children: <Widget>[
                               Text(
-                                sitterAge,
+                                babyAge,
                                 style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white, fontSize: 14.0)),
                               SizedBox(width: 8,),
                               Text(
-                                sitterlocation,
+                                babylocation,
                                 style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white, fontSize: 18.0)),
                             ],
                           ),
@@ -85,9 +81,9 @@ class SitterCard extends StatelessWidget {
           Row(
             children: <Widget>[
               SizedBox(width: 5.0,),
-              Text(sitterDate, style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+              Text(babyDate, style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
               SizedBox(width: 5.0,),
-              Text('${formatCurrency.format(sitterPricePerHour)}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),),
+              Text('${formatCurrency.format(babyPricePerHour)}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),),
             ],
           ),
         ],
