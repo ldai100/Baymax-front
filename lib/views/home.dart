@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'collection_page/collection_page.dart';
 import 'explore_page/explore_page.dart';
 import 'profile_page/profile_page.dart';
-
-
+import 'Draw.dart';
+import '../Sample/Card.dart';
+import 'collection_page//CatAnimation.dart';
+import 'Explore1/explore_page.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,9 +46,9 @@ class _HomeState extends State<Home> {
 
     //Add 3 main pages to a list by using cascade notation.
     list
-    ..add(ExplorePage())
+    ..add(CatAnimation())
     ..add(CollectionPage())
-    ..add(ProfilePage());
+    ..add(ExplorePage());
   }
 
   // @override
@@ -57,6 +59,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Draw(),
+      appBar: AppBar(
+        title: Text(appBarTitle),
+      ),
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: myTabs,

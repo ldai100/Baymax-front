@@ -19,15 +19,16 @@ class ProfileFourPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
-              flex: 2,
+              flex:2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 5.0),
+                  SizedBox(height:5.0),
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: RaisedButton(
@@ -46,15 +47,14 @@ class ProfileFourPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        padding:
-                            const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
-                        child:
-                            const Text('Back', style: TextStyle(fontSize: 20)),
+                        padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
+                        child: const Text('Back', style: TextStyle(fontSize: 20)),
                       ),
                     ),
                   ),
                   SizedBox(height: 10.0),
                   _buildHeader(),
+
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: RaisedButton(
@@ -73,10 +73,8 @@ class ProfileFourPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        padding:
-                            const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
-                        child: const Text('Message',
-                            style: TextStyle(fontSize: 20)),
+                        padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
+                        child: const Text('Message', style: TextStyle(fontSize: 20)),
                       ),
                     ),
                   ),
@@ -84,7 +82,7 @@ class ProfileFourPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex:2,
               child: Column(
                 children: <Widget>[
                   SizedBox(height: 10.0),
@@ -137,8 +135,7 @@ class ProfileFourPage extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       SizedBox(width: 30.0),
-                      Icon(Icons.attach_money,
-                          color: Colors.black54, size: 40.0),
+                      Icon(Icons.attach_money, color: Colors.black54, size: 40.0),
                       SizedBox(width: 10.0),
                       Text(
                         "15/hour",
@@ -151,7 +148,7 @@ class ProfileFourPage extends StatelessWidget {
             ),
             //_buildSocialsRow(),
             //SizedBox(height: 40.0),
-            Expanded(flex: 1, child: rating(4)),
+            Expanded(flex:1,child: rating(4)),
           ],
         ),
       ),
