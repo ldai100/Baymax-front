@@ -70,7 +70,7 @@ class _UserCardState extends State<UserCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Text("${this.name}(Index: ${this.index})",
+              Text("${this.name} ${this.index}",
                   style: Theme.of(context).textTheme.headline),
               Text("${this.name}",
                   style: Theme.of(context).textTheme.subhead),
