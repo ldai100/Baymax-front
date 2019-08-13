@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'collection_page/collection_page.dart';
 import 'explore_page/explore_page.dart';
 import 'profile_page/profile_page.dart';
-
-
+import 'Draw.dart';
+import '../Sample/Card.dart';
+import 'collection_page//CatAnimation.dart';
+import 'Explore1/explore_page.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -24,7 +26,7 @@ class _HomeState extends State<Home> {
   static List tabData = [
     {'text': 'Explore', 'icon': Icon(Icons.explore)},
     {'text': 'Saved', 'icon': Icon(Icons.favorite)},
-    {'text': 'Profile', 'icon': Icon(Icons.person)}
+    {'text': 'Profile', 'icon': Icon(Icons.person)},
   ];
 
   List<BottomNavigationBarItem> myTabs = [];
@@ -43,7 +45,10 @@ class _HomeState extends State<Home> {
     }
 
     //Add 3 main pages to a list by using cascade notation.
-    list..add(ExplorePage())..add(CollectionPage())..add(ProfilePage());
+    list
+    ..add(CatAnimation())
+    ..add(CollectionPage())
+    ..add(ExplorePage());
   }
 
   // @override
@@ -54,6 +59,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Draw(),
       appBar: AppBar(
         title: Text(appBarTitle),
       ),
@@ -63,7 +69,7 @@ class _HomeState extends State<Home> {
 
         currentIndex: _currentIndex,
 
-        onTap: _ItemTapped,
+        onTap: _itemTapped,
         
         
         type: BottomNavigationBarType.fixed,
@@ -73,7 +79,7 @@ class _HomeState extends State<Home> {
       );
   }
 
-  void _ItemTapped(int index) {
+  void _itemTapped(int index) {
     setState(() {
       _currentIndex = index;
       appBarTitle = tabData[index]['text'];
