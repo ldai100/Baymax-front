@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'collection_page/collection_page.dart';
 import 'explore_page/explore_page.dart';
+import 'profile_page/profile_page.dart';
 import 'Draw.dart';
-import 'collection_page//CatAnimation.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   //set explore page to be the current tab for home screen.
   
 
-  String appBarTitle = tabData[0]['text'];
+  //String appBarTitle = tabData[0]['text'];
   List<Widget> list = List();
   int _currentIndex = 0;
 
@@ -43,9 +44,9 @@ class _HomeState extends State<Home> {
 
     //Add 3 main pages to a list by using cascade notation.
     list
-    ..add(CatAnimation())
+    ..add(ExplorePage())
     ..add(CollectionPage())
-    ..add(ExplorePage());
+    ..add(ProfilePage());
   }
 
   // @override
@@ -57,9 +58,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Draw(),
-      appBar: AppBar(
-        title: Text(appBarTitle),
-      ),
+      // appBar: AppBar(
+      //   title: Text(appBarTitle),
+      // ),
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: myTabs,
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
   void _itemTapped(int index) {
     setState(() {
       _currentIndex = index;
-      appBarTitle = tabData[index]['text'];
+      //appBarTitle = tabData[index]['text'];
     });
   }
 }

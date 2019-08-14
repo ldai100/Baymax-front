@@ -15,12 +15,12 @@ class Draw extends StatelessWidget {
           new UserAccountsDrawerHeader(
             accountName: new Text("Pratap Kumar",style: TextStyle(color:Colors.black )),
             accountEmail: new Text("kprathap23@gmail.com",style: TextStyle(color:Colors.black )),
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new ExactAssetImage('assets/images/lake.jpeg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+            // decoration: new BoxDecoration(
+            //   image: new DecorationImage(
+            //     image: new ExactAssetImage('assets/images/lake.jpeg'),
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
             currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
                     "https://tu.jiuwa.net/pic/20190107/1546869411485245.jpeg")),
