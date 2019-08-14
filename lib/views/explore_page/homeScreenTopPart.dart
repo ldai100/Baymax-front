@@ -21,79 +21,81 @@ class _HomeScreenTopPartState extends State<HomeScreenTopPart> {
       children: <Widget>[
         Column(
           children: <Widget>[
-            ClipPath(clipper: CustomShapeClipper(),
-              child: Container(
-              height: 400.0,
-                color: Colors.orange,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
+            Expanded(
+              flex:2,
+              child: ClipPath(clipper: CustomShapeClipper(),
+                child: Container(
+                  color: Colors.orange,
+                    child: Column(
                       children: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.location_on,color: Colors.white,),
-                          tooltip: 'comfirm current location',
-                          onPressed: null,
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: <Widget>[
+                              IconButton(
+                                icon: Icon(Icons.location_on,color: Colors.white,),
+                                tooltip: 'comfirm current location',
+                                onPressed: null,
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 1.0),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32.0),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter here to make search',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 14.0),
-                          suffixIcon: Material(
-                            elevation: 2.0,
-                            borderRadius: BorderRadius.all(Radius.circular(30.0),),
-                            child:InkWell(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => ListScreen()));
-                              },
-                              child: Icon(Icons.search, color: Colors.black),
+                        SizedBox(height: 1.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 32.0),
+                          child: Material(
+                            elevation: 5.0,
+                            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Enter here to make search',
+                                contentPadding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 14.0),
+                                suffixIcon: Material(
+                                  elevation: 2.0,
+                                  borderRadius: BorderRadius.all(Radius.circular(30.0),),
+                                  child:InkWell(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListScreen()));
+                                    },
+                                    child: Icon(Icons.search, color: Colors.black),
+                                    ),
+                                ),
+                                border:InputBorder.none,
+                                ),
                               ),
                           ),
-                          border:InputBorder.none,
-                          ),
                         ),
+                        SizedBox(height: 20.0),
+                        Text('You Are Looking for', style:TextStyle(fontSize: 24.0, color: Colors.white,),textAlign: TextAlign.center,),
+                        SizedBox(height: 20.0),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            InkWell(
+                              child: customChoiceChip.ChoiceChip(Icons.child_care,"Babies",isBabySelected),
+                              onTap: (){
+                                setState(() {
+                                  isBabySelected = true;
+                                });
+                              }),
+                            SizedBox(width: 20.0),
+                            InkWell(
+                              child: customChoiceChip.ChoiceChip(Icons.folder_shared,"Babysitters",!isBabySelected),
+                              onTap: (){
+                                setState(() {
+                                  isBabySelected = false;
+                                });
+                              },),
+                          ],
+                        ),
+                        //SizedBox(height: 30.0),///
+                      ],
                     ),
-                  ),
-                  SizedBox(height: 20.0),
-                  Text('You Are Looking for', style:TextStyle(fontSize: 24.0, color: Colors.white,),textAlign: TextAlign.center,),
-                  SizedBox(height: 20.0),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      InkWell(
-                        child: customChoiceChip.ChoiceChip(Icons.child_care,"Babies",isBabySelected),
-                        onTap: (){
-                          setState(() {
-                            isBabySelected = true;
-                          });
-                        }),
-                      SizedBox(width: 20.0),
-                      InkWell(
-                        child: customChoiceChip.ChoiceChip(Icons.folder_shared,"Babysitters",!isBabySelected),
-                        onTap: (){
-                          setState(() {
-                            isBabySelected = false;
-                          });
-                        },),
-                    ],
-                  ),
-                  //SizedBox(height: 30.0),///
-                ],
-              ),
-              ),
-              ),
-              HomeScreenBottomPart(isSelected: isBabySelected,),
+                ),
+                ),
+            ),
+              Expanded(flex:1,child:HomeScreenBottomPart(isSelected: isBabySelected,)),
           ],
         ),
       ],

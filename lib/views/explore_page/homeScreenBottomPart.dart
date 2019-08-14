@@ -20,25 +20,28 @@ class _HomeScreenBottomPartState extends State<HomeScreenBottomPart> {
   Widget build(BuildContext context) {
     return new Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-        child:
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-            SizedBox(width: 16.0,),
-            Text('Recommendation', style: TextStyle(color: Colors.black, fontSize: 16.0),),
-            Spacer(),
-            InkWell(
-              child: new Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
-              onTap: () => null,
-              ),
-            ]
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+          child:
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              SizedBox(width: 16.0,),
+              Text('Recommendation', style: TextStyle(color: Colors.black, fontSize: 16.0),),
+              Spacer(),
+              InkWell(
+                child: new Text('View ALL(12)',style: TextStyle(fontSize: 14.0, color: appTheme.primaryColor),),
+                onTap: () => null,
+                ),
+              ]
+            ),
           ),
         ),
-        new Container(
-          height: 210.0,
+         Expanded(
+           flex:2,
+         // height: 210.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: getList(widget.isSelected),
