@@ -46,8 +46,10 @@ class _HomeState extends State<Home> {
     //Add 3 main pages to a list by using cascade notation.
     list
     ..add(ExplorePage())
-    ..add(Calender())
-    ..add(BasicDateTimeField());
+    ..add(CollectionPage())
+    ..add(ProfilePage());
+   // ..add(Calender())
+   // ..add(BasicDateTimeField());
   }
 
   // @override
